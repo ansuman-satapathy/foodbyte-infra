@@ -1,3 +1,9 @@
+variable "db_password" {
+  description = "Master password for all DBs"
+  type        = string
+  sensitive   = true
+}
+
 module "vpc" {
   source = "../../modules/vpc"
 
@@ -28,9 +34,7 @@ module "db" {
   intra_subnet_ids  = module.vpc.intra_subnet_ids
   eks_cluster_sg_id = module.eks.cluster_security_group_id
   
-  # For learning/demo, we pass a hardcoded password. 
-  # In a real company, this would come from a secret manager.
-  db_password       = "FoodByteSuperSecure2026"
+  db_password       = var.db_password
 
   depends_on = [module.eks]
 }
