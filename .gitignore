@@ -1,0 +1,26 @@
+# Local terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include tool-specific files
+.terraform.lock.hcl
+
+# Exclude sensitive var files
+*.tfvars
+*.tfvars.json
+
+# Mac OS files
+.DS_Store
