@@ -50,7 +50,7 @@ resource "aws_iam_role_policy_attachment" "amazon_ecr_read_only" {
   role       = aws_iam_role.nodes.name
 }
 
-# 3. 🚀 Dedicated IAM Role for EBS CSI Driver (Required for EKS 1.35)
+# 3. Dedicated IAM Role for EBS CSI Driver
 resource "aws_iam_role" "ebs_csi" {
   name = "${var.project_name}-${var.environment}-ebs-csi-role"
 
