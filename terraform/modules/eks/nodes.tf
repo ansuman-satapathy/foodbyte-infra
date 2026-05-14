@@ -4,14 +4,14 @@ resource "aws_eks_node_group" "main" {
   node_role_arn   = aws_iam_role.nodes.arn
   subnet_ids      = var.private_subnet_ids
 
-  instance_types = ["t3.medium"]
-  ami_type       = "AL2023_x86_64_STANDARD"
+  instance_types = ["t4g.small"]
+  ami_type       = "AL2023_ARM_64_STANDARD"
   capacity_type  = "ON_DEMAND"
 
   scaling_config {
-    desired_size = 2
+    desired_size = 3
     max_size     = 5
-    min_size     = 2
+    min_size     = 3
   }
 
   update_config {

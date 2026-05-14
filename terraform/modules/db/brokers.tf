@@ -22,6 +22,8 @@ resource "aws_mq_broker" "rabbitmq" {
   engine_version     = "3.13"
   host_instance_type = "mq.t3.micro" 
   
+  auto_minor_version_upgrade = true
+  
   subnet_ids = [var.intra_subnet_ids[0]]
   
   security_groups = [aws_security_group.db.id]
